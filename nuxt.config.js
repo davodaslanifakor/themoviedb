@@ -1,5 +1,10 @@
 export default {
   // Global page headers: https://go.nuxtjs.dev/config-head
+  publicRuntimeConfig: {
+    baseURL: process.env.BASE_URL,
+    apiKey: process.env.API_KEY || 'not-api-key',
+    configImage: process.env.CONFIG_IMAGE
+  },
   head: {
     title: 'themoviedb',
     meta: [
@@ -19,6 +24,8 @@ export default {
 
   // Plugins to run before rendering page: https://go.nuxtjs.dev/config-plugins
   plugins: [
+    '~/request/apiFactory.js',
+    '~/request/axios.js'
   ],
 
   // Auto import components: https://go.nuxtjs.dev/config-components
@@ -39,20 +46,16 @@ export default {
     // https://go.nuxtjs.dev/pwa
     '@nuxtjs/pwa'
   ],
-
-  // Axios module configuration: https://go.nuxtjs.dev/config-axios
-  axios: {
-    // Workaround to avoid enforcing hard-coded localhost:3000: https://github.com/nuxt-community/axios-module/issues/308
-    baseURL: '/'
-  },
-
   // PWA module configuration: https://go.nuxtjs.dev/pwa
   pwa: {
     manifest: {
       lang: 'en'
     }
   },
-
+  // tailwindcss moudule config https://tailwindcss.nuxtjs.org/getting-started/setup
+  tailwindcss: {
+    cssPath: '~/assets/styles/tailwind.css'
+  },
   // Build Configuration: https://go.nuxtjs.dev/config-build
   build: {
   }
