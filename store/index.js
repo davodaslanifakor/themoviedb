@@ -8,9 +8,6 @@ export const mutations = {
 }
 
 export const actions = {
-  async nuxtServerInit ({ dispatch }) {
-    await dispatch('getAllGenres')
-  },
   async getAllGenres ({ commit }) {
     try {
       const { genres } = await this.$api.get({ url: ALL_GENRES })
