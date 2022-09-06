@@ -19,8 +19,9 @@ export const actions = {
       })
       commit('SET_VIDEO_LIST', results)
       commit('SET_VIDEO_PAGINATION', { total_results, total_pages, page })
+      return Promise.resolve(results)
     } catch (e) {
-      console.log(e)
+      return Promise.reject(e)
     }
   }
 }

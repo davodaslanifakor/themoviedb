@@ -12,8 +12,9 @@ export const actions = {
     try {
       const { genres } = await this.$api.get({ url: ALL_GENRES })
       commit('SET_GENRES_LIST', genres)
+      return Promise.resolve(genres)
     } catch (e) {
-      console.log(e)
+      return Promise.reject(e)
     }
   }
 }

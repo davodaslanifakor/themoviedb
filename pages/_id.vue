@@ -21,9 +21,13 @@
 <script>
 export default {
   name: 'MovieId',
-  async asyncData ({ store, params }) {
-    await store.dispatch('videoInfo/getVideoDetails', { id: params.id })
-    await store.dispatch('videoInfo/getVideoCredits', { id: params.id })
+  async asyncData ({ store, params, error }) {
+    try {
+      await store.dispatch('videoInfo/getVideoDetails', { id: params.id })
+      await store.dispatch('videoInfo/getVideoCredits', { id: params.id })
+    } catch (e) {
+      error(e)
+    }
   },
   computed: {
     videoInfo () {

@@ -8,9 +8,13 @@
 
 export default {
   name: 'IndexPage',
-  async asyncData ({ store }) {
-    await store.dispatch('getAllGenres')
-    await store.dispatch('videoList/getVideoList')
+  async asyncData ({ store, error }) {
+    try {
+      await store.dispatch('getAllGenres')
+      await store.dispatch('videoList/getVideoList')
+    } catch (e) {
+      error(e)
+    }
   }
 }
 </script>

@@ -15,8 +15,9 @@ export const actions = {
         url: MOVIE_DETAILS({ movieId: params.id })
       })
       commit('SET_VIDEO_DETAILS', res)
+      return Promise.resolve(res)
     } catch (e) {
-      console.log(e)
+      return Promise.reject(e)
     }
   },
   async getVideoCredits ({ commit }, params) {
@@ -25,8 +26,9 @@ export const actions = {
         url: CREDITS({ movieId: params.id })
       })
       commit('SET_VIDEO_CREDITS', res)
+      return Promise.resolve(res)
     } catch (e) {
-      console.log(e)
+      return Promise.reject(e)
     }
   }
 }
