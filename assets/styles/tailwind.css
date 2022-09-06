@@ -18,3 +18,20 @@
     @apply animate-pulse bg-blue-500 text-xs;
   }
 }
+
+.page-enter-active,
+.page-leave-active {
+  transition: opacity 0.5s;
+}
+.page-enter,
+.page-leave-to {
+  opacity: 0;
+}
+.layout-enter-active,
+.layout-leave-active {
+  transition: opacity 0.5s;
+}
+.layout-enter,
+.layout-leave-active {
+  opacity: 0;
+}
