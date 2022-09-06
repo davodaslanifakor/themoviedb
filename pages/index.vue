@@ -9,10 +9,7 @@
 export default {
   name: 'IndexPage',
   async asyncData ({ store }) {
-    await store.dispatch('video-list/getVideoList')
-  },
-  mounted () {
-    this.$store.dispatch('video-list/getVideoList')
+    await store.dispatch('videoList/getVideoList')
   }
 }
 </script>

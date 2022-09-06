@@ -25,15 +25,22 @@ export default {
   name: 'TheVideoList',
   computed: {
     videoList () {
-      return this.$store.state['video-list'].videoList
+      return this.$store.state.videoList.videoList
     },
     pagination () {
-      return this.$store.state['video-list'].videoPagination
+      return this.$store.state.videoList.videoPagination
     }
   },
   methods: {
+    setScrollTop () {
+      window.scrollTo({
+        top: 0,
+        behavior: 'smooth'
+      })
+    },
     change (page) {
-      this.$store.dispatch('video-list/getVideoList', { page })
+      this.setScrollTop()
+      this.$store.dispatch('videoList/getVideoList', { page })
     }
   }
 }

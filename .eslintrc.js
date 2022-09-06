@@ -17,6 +17,7 @@ module.exports = {
   // add your custom rules here
   rules: {
     'no-console': 0,
-    camelcase: 0
+    camelcase: 0,
+    'vue-no-html': 0
   }
 }

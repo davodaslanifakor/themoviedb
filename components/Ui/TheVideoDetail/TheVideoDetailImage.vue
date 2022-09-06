@@ -1,8 +1,8 @@
 <template>
-  <div class="relative pb-[150%] w-32  overflow-hidden">
+  <div class="relative pb-[150%] w-80  overflow-hidden">
     <img
-      class="absolute inset-0 lazyload object-cover "
-      :data-src="$config.configImage + 'w185' + poster"
+      class="absolute inset-0 lazyload  object-cover rounded-xl"
+      :data-src="imageSrc"
       :alt="alt"
     >
   </div>
@@ -10,13 +10,13 @@
 
 <script>
 export default {
-  name: 'TheVideoListItemImage',
+  name: 'TheVideoDetailImage',
   props: {
     alt: {
       type: String,
       default: ''
     },
-    poster: {
+    imageSrc: {
       type: String,
       default: ''
     }

@@ -13,4 +13,9 @@
     line-clamp: 1;
     -webkit-box-orient: vertical;
   }
+  .lazyload,
+  .lazyloading {
+    opacity: 0.5;
+    @apply animate-pulse bg-blue-500 text-xs;
+  }
 }

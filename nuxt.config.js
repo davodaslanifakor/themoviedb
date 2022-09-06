@@ -1,9 +1,11 @@
 export default {
   // Global page headers: https://go.nuxtjs.dev/config-head
+  target: 'static',
   publicRuntimeConfig: {
     baseURL: process.env.BASE_URL,
     apiKey: process.env.API_KEY || 'not-api-key',
-    configImage: process.env.CONFIG_IMAGE
+    configImage: process.env.CONFIG_IMAGE,
+    imdbBaseUrlDetails: process.env.IMDB_BASE_URL_DETAIL
   },
   head: {
     title: 'themoviedb',
@@ -36,7 +38,8 @@ export default {
     // https://go.nuxtjs.dev/eslint
     '@nuxtjs/eslint-module',
     // https://go.nuxtjs.dev/tailwindcss
-    '@nuxtjs/tailwindcss'
+    '@nuxtjs/tailwindcss',
+    'nuxt-lazysizes'
   ],
 
   // Modules: https://go.nuxtjs.dev/config-modules
@@ -55,6 +58,14 @@ export default {
   // tailwindcss moudule config https://tailwindcss.nuxtjs.org/getting-started/setup
   tailwindcss: {
     cssPath: '~/assets/styles/tailwind.css'
+  },
+  lazySizes: {
+    extendAssetUrls: {
+      img: 'data-src',
+      source: 'data-srcset',
+      // Component with custom props
+      AppImage: ['url', 'image-url']
+    }
   },
   // Build Configuration: https://go.nuxtjs.dev/config-build
   build: {

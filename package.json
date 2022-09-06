@@ -20,6 +20,7 @@
     "vue": "^2.6.14",
     "vue-server-renderer": "^2.6.14",
     "vue-template-compiler": "^2.6.14",
+    "vue2-daterange-picker": "^0.6.8",
     "webpack": "^4.46.0"
   },
   "devDependencies": {
@@ -35,6 +36,7 @@
     "eslint-plugin-nuxt": "^3.1.0",
     "eslint-plugin-vue": "^8.2.0",
     "jest": "^27.4.4",
+    "nuxt-lazysizes": "^1.4.2",
     "postcss": "^8.4.4",
     "vue-jest": "^3.0.4"
   }
