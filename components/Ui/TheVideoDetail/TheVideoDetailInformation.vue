@@ -1,6 +1,6 @@
 <template>
   <div class="flex flex-col space-y-3.5 w-full">
-    <div class="flex justify-between w-full">
+    <div class="flex justify-between w-full items-center">
       <span class="font-roboto text-black-4  text-main font-bold capitalize">
         Budget
       </span>
@@ -8,7 +8,7 @@
         {{ generalInfo.budget }}
       </span>
     </div>
-    <div class="flex justify-between w-full">
+    <div class="flex justify-between w-full items-center">
       <span class="font-roboto text-black-4  text-main font-bold capitalize">
         Revenue
       </span>
@@ -16,7 +16,7 @@
         {{ generalInfo.revenue }}
       </span>
     </div>
-    <div class="flex justify-between w-full">
+    <div class="flex justify-between w-full items-center">
       <span class="font-roboto text-black-4  text-main font-bold capitalize">
         Release Date
       </span>
@@ -24,7 +24,7 @@
         {{ generalInfo.releaseDate }}
       </span>
     </div>
-    <div class="flex justify-between w-full">
+    <div class="flex justify-between w-full items-center">
       <span class="font-roboto text-black-4  text-main font-bold capitalize">
         Runtime
       </span>
@@ -32,15 +32,19 @@
         {{ generalInfo.runtime }}
       </span>
     </div>
-    <div class="flex justify-between w-full">
+    <div class="flex justify-between w-full items-center">
       <span class="font-roboto text-black-4  text-main font-bold capitalize">
         Score
       </span>
-      <span class="font-roboto text-black-4  text-sm font-normal">
-        {{ generalInfo.score.average }} ({{ generalInfo.score.count }} vots)
-      </span>
+      <div class="flex items-center flex-col justify-center">
+        <div class="flex items-center">
+          <ElementVIconStarActive />
+          <span class="font-roboto text-black-4  text-sm font-normal">{{ generalInfo.score.average | roundOverall }}/10</span>
+        </div>
+        <span class="font-roboto text-gray-4  text-xs font-normal">({{ generalInfo.score.count }})</span>
+      </div>
     </div>
-    <div class="flex justify-between w-full">
+    <div class="flex justify-between w-full items-center">
       <span class="font-roboto text-black-4  text-main font-bold capitalize">
         Genres
       </span>
@@ -48,7 +52,7 @@
         {{ generalInfo.genres }}
       </span>
     </div>
-    <div class="flex justify-between w-full">
+    <div class="flex justify-between w-full items-center">
       <span class="font-roboto text-black-4  text-main font-bold capitalize">
         IMDB Link
       </span>
@@ -56,7 +60,7 @@
         Link
       </a>
     </div>
-    <div class="flex justify-between w-full">
+    <div class="flex justify-between w-full items-center">
       <span class="font-roboto text-black-4  text-main font-bold capitalize">
         Homepage Link
       </span>
@@ -70,6 +74,13 @@
 <script>
 export default {
   name: 'TheVideoDetailInformation',
+  filters: {
+    roundOverall (value) {
+      if (!value) { return '' }
+      const round = Math.round(value * 10) / 10
+      return round || 0
+    }
+  },
   props: {
     generalInfo: {
       type: Object,
